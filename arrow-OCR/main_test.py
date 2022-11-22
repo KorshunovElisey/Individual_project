@@ -11,9 +11,12 @@ YELLOW = (0, 255, 255)
 RED = (0, 0, 255)
 capture = cv2.VideoCapture(0)
 t = time.time()
+counter = True
 
 def on_change(value):
-    print(value)
+    return value
+
+
 
 while True:
     ret, img = capture.read()
@@ -21,6 +24,7 @@ while True:
     thresh = cv2.inRange(hsv, hsv_min, hsv_max)
     contours0, hierarchy = cv2.findContours(thresh.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(image=img, contours=contours0, contourIdx=-1, color=BLUE, thickness=2, lineType=cv2.LINE_AA)
+
     for cnt in contours0:
         if len(cnt) > 30:
             rect = cv2.minAreaRect(cnt)
@@ -45,12 +49,30 @@ while True:
                 if time.time() - t >= 0.5:
                     t = time.time()
                     print(angle)
-
+    
     cv2.imshow('d', thresh)
     cv2.imshow('f', img)
+
+    if counter:
+        cv2.createTrackbar('hsv_min0', 'd', 0, 255, on_change)
+        cv2.createTrackbar('hsv_min1', 'd', 0, 255, on_change)
+        cv2.createTrackbar('hsv_min2', 'd', 0, 255, on_change)
+        cv2.createTrackbar('hsv_max0', 'd', 0, 255, on_change)
+        cv2.createTrackbar('hsv_max1', 'd', 0, 255, on_change)
+        cv2.createTrackbar('hsv_max2', 'd', 0, 255, on_change)
+        counter = False
+
+    hsv_min[0] = cv2.getTrackbarPos('hsv_min0', 'd')
+    hsv_min[1] = cv2.getTrackbarPos('hsv_min1', 'd')
+    hsv_min[2] = cv2.getTrackbarPos('hsv_min2', 'd')
+    hsv_max[0] = cv2.getTrackbarPos('hsv_max0', 'd')
+    hsv_max[1] = cv2.getTrackbarPos('hsv_max1', 'd')
+    hsv_max[2] = cv2.getTrackbarPos('hsv_max2', 'd')
+
     k = cv2.waitKey(30) & 0xFF
     if k == 27:
         break
+
 
 capture.release()
 cv2.destroyAllWindows()
