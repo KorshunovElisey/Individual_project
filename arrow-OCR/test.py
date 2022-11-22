@@ -4,7 +4,7 @@ import cv2
 def on_change(value):
     print(value) 
  
- 
+    
 img = cv2.imread('img/stef.png')
  
 windowName = 'image'

@@ -12,6 +12,9 @@ RED = (0, 0, 255)
 capture = cv2.VideoCapture(0)
 t = time.time()
 
+def on_change(value):
+    print(value)
+
 while True:
     ret, img = capture.read()
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -33,7 +36,8 @@ while True:
             if cv2.norm(edge2) > cv2.norm(edge1):
                 usedEdge = edge2
             reference = (1, 0)
-            angle = 180.0 / math.pi * math.acos((reference[0] * usedEdge[0] + reference[1] * usedEdge[1]) / (cv2.norm(reference) * cv2.norm(usedEdge)))
+            
+            angle = 180.0 / math.pi * math.acos((reference[0] * usedEdge[0] + reference[1] * usedEdge[1]) / (cv2.norm(reference, cv2.NORM_L2) * cv2.norm(usedEdge, cv2.NORM_L2)))
             if 750 < area < 5000:
                 cv2.drawContours(img, [box], 0, RED, 2)
                 cv2.circle(img, centre, 5, YELLOW, 2)
