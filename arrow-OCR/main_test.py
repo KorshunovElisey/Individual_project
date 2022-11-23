@@ -15,7 +15,7 @@ counter = True
 
 def on_change(value):
     return value
-
+g = 12
 
 
 while True:
