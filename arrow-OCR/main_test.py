@@ -42,7 +42,7 @@ while True:
             reference = (1, 0)
             
             angle = 180.0 / math.pi * math.acos((reference[0] * usedEdge[0] + reference[1] * usedEdge[1]) / (cv2.norm(reference, cv2.NORM_L2) * cv2.norm(usedEdge, cv2.NORM_L2)))
-            if 750 < area < 5000:
+            if 750 < area:
                 cv2.drawContours(img, [box], 0, RED, 2)
                 cv2.circle(img, centre, 5, YELLOW, 2)
                 cv2.putText(img, '%d' % int(angle), (centre[0] + 20, centre[1] - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, YELLOW, 2)
@@ -54,20 +54,20 @@ while True:
     cv2.imshow('f', img)
 
     if counter:
-        cv2.createTrackbar('hsv_min0', 'd', 0, 255, on_change)
-        cv2.createTrackbar('hsv_min1', 'd', 0, 255, on_change)
-        cv2.createTrackbar('hsv_min2', 'd', 0, 255, on_change)
-        cv2.createTrackbar('hsv_max0', 'd', 0, 255, on_change)
-        cv2.createTrackbar('hsv_max1', 'd', 0, 255, on_change)
-        cv2.createTrackbar('hsv_max2', 'd', 0, 255, on_change)
+        cv2.createTrackbar('color', 'd', 0, 255, on_change)
+        cv2.createTrackbar('saturation', 'd', 0, 255, on_change)
+        cv2.createTrackbar('light', 'd', 0, 255, on_change)
+        cv2.createTrackbar('color_max', 'd', 0, 255, on_change)
+        cv2.createTrackbar('saturation_max', 'd', 0, 255, on_change)
+        cv2.createTrackbar('light_max', 'd', 0, 255, on_change)
         counter = False
 
-    hsv_min[0] = cv2.getTrackbarPos('hsv_min0', 'd')
-    hsv_min[1] = cv2.getTrackbarPos('hsv_min1', 'd')
-    hsv_min[2] = cv2.getTrackbarPos('hsv_min2', 'd')
-    hsv_max[0] = cv2.getTrackbarPos('hsv_max0', 'd')
-    hsv_max[1] = cv2.getTrackbarPos('hsv_max1', 'd')
-    hsv_max[2] = cv2.getTrackbarPos('hsv_max2', 'd')
+    hsv_min[0] = cv2.getTrackbarPos('color', 'd')
+    hsv_min[1] = cv2.getTrackbarPos('saturation', 'd')
+    hsv_min[2] = cv2.getTrackbarPos('light', 'd')
+    hsv_max[0] = cv2.getTrackbarPos('color_max', 'd')
+    hsv_max[1] = cv2.getTrackbarPos('saturation_max', 'd')
+    hsv_max[2] = cv2.getTrackbarPos('light_max', 'd')
 
     k = cv2.waitKey(30) & 0xFF
     if k == 27:
