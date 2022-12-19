@@ -6,9 +6,6 @@ import time
 import tkinter as tk
 import scipy.signal as signal
 
-
-
-
 hsv_min = np.array((0, 100, 100), np.uint8)
 hsv_max = np.array((180, 255, 255), np.uint8)
 record = 0
@@ -30,8 +27,6 @@ origin = time.time()
 
 def on_change(value):
     pass
-
-
 
 while True:
     ret, img = capture.read()
