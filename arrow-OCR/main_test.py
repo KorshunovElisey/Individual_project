@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import cv2
 import math
 import time
-import tkinter as tk
 import scipy.signal as signal
 
 hsv_min = np.array((0, 100, 100), np.uint8)
@@ -12,9 +11,13 @@ record = 0
 record_c = False
 recordList = np.array([], dtype=np.float64)
 timeList = np.array([], dtype=np.float64)
+writeTime = np.array([], dtype=np.float64)
+writeValue = np.array([], dtype=np.float64)
+writeValue2 = np.array([], dtype=np.float64)
 area_min = 0
 area_max = 25000
 unCounter = 0
+shift = 0
 plt.style.use('Solarize_Light2')
 
 BLUE = (255, 0, 0)
@@ -27,6 +30,8 @@ origin = time.time()
 
 def on_change(value):
     pass
+
+
 
 while True:
     ret, img = capture.read()
@@ -53,7 +58,7 @@ while True:
             reference = (1, 0)
             angle = 180.0 / math.pi * math.acos(
                 (reference[0] * usedEdge[0] + reference[1] * usedEdge[1]) / (cv2.norm(reference) * cv2.norm(usedEdge))
-            )
+            ) - shift
             if area_min < area < area_max and un > unCounter:
                 cv2.drawContours(img, [box], 0, RED, 2)
                 cv2.circle(img, centre, 5, YELLOW, 2)
@@ -72,6 +77,7 @@ while True:
     cv2.imshow('d', thresh)
     cv2.imshow('f', img)
     if counter:
+        cv2.createTrackbar('shift', 'd', 0, 90, on_change)
         cv2.createTrackbar('area_min', 'd', 0, 25000, on_change)
         cv2.createTrackbar('area_max', 'd', 25000, 25000, on_change)
         cv2.createTrackbar('color', 'd', 0, 255, on_change)
@@ -83,6 +89,7 @@ while True:
         #cv2.createTrackbar('ratio', 'd', 1, 30, on_change)
         cv2.createTrackbar('record', 'd', 0, 1, on_change)
         counter = False
+    shift = cv2.getTrackbarPos('shift', 'd')
     area_min = cv2.getTrackbarPos('area_min', 'd')
     area_max = cv2.getTrackbarPos('area_max', 'd')
     hsv_min[0] = cv2.getTrackbarPos('color', 'd')
@@ -113,9 +120,16 @@ for i in range(len(recordList)):
             count += recordList[j]
         trueRecord[i] = count/7
 filtered = signal.sosfiltfilt(sos, recordList)
-ax.plot(timeList, trueRecord, color='red', linewidth=1, alpha=1)
+for i in range(0, len(timeList), 5):
+    writeTime = np.append(writeTime, timeList[i])
+    writeValue = np.append(writeValue, filtered[i])
+    writeValue2 = np.append(writeValue2, trueRecord[i])
+#ax.plot(timeList, trueRecord, color='red', linewidth=1, alpha=1)
 ax.plot(timeList, filtered, color='green', linewidth=1, alpha=1)
+#ax.plot(writeTime, writeValue2, color='black', linewidth=1, alpha=1)
+ax.plot(writeTime, writeValue, color='purple', linewidth=1, alpha=1)
 capture.release()
 #cv2.waitKey()
 cv2.destroyAllWindows()
 plt.show()
+№print(writeTime)
