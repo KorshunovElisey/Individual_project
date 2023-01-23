@@ -43,6 +43,8 @@ class cutDigits:
             inf = i * self.box_size
             sup = (i+1) * self.box_size
             self.boxes += [self.image[:, int(inf):int(sup)]]
+        print(self.boxes)
+        
 
 
     def save_to_folder(self) :
@@ -57,11 +59,11 @@ class cutDigits:
                 box = self.boxes[i]
                 label = self.labels[i]
                 src_file_name = self.src_file_name.split('/')[-1].split('.')[0]
-                dst_file_name = 'Datasets_digits/%s/%s_%s.jpg' % (label, src_file_name, str(i))
+                dst_file_name = 'img/%s/%s_%s.jpg' % (label, src_file_name, str(i))
                 cv2.imwrite(dst_file_name, box)
                 
             else:
-                pass
+                print('fuck_you')
 
             #else :
           #      box = self.boxes[i]

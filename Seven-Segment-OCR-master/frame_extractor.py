@@ -263,12 +263,12 @@ if __name__ == "__main__":
 
     fail = [0, 0, 0]
 
-    for file in glob.glob('Datasets/HQ_digital/*jpg'):
+    for file in glob.glob('Seven-Segment-OCR-master/Datasets/ops1/*jpg'):
 
         try:
             f = frameExtractor(image=None,
                                src_file_name=file,
-                               dst_file_name='Datasets_frames/' + str(file).split('/')[-1],
+                               dst_file_name='Seven-Segment-OCR-master/Datasets_frames/' + str(file).split('/')[-1],
                                return_image=False,
                                output_shape=(400, 100))
             f.extractAndSaveFrame()

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import os
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from keras.models import Sequential
 from keras.models import Model
 from keras.layers import Input, Dense, Conv2D, MaxPooling2D, Flatten
