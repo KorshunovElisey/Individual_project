@@ -25,6 +25,7 @@ class frameExtractor:
         :param return_image: a boolean, if True extractAndSave returns an image (np. array) / if False it just saves the image.
         :param output_shape: shape (in pxl) of the output image.
         """
+        assert os.path.exists(src_file_name), 'poshel nahui'
         if image is None :
             self.image = cv2.imread(src_file_name)
         else :
