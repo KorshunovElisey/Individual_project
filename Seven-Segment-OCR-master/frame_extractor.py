@@ -14,7 +14,7 @@ import skimage.filters as ft
 
 class frameExtractor:
 
-    def __init__(self, image=None, src_file_name=None, dst_file_name=None, return_image=False, output_shape =(400,100)):
+    def __init__(self, image=None, src_file_name=None, dst_file_name=None, return_image=False, output_shape =(400,100), thresh=None):
         """
         Use this class to extract the frame/LCD screen from the image. This is our step 1 for image preprocessing.
         The final frame is extracted in grayscale.
@@ -36,6 +36,7 @@ class frameExtractor:
         self.raw_frame = None
         self.frame = None
         self.sliced_frame = None
+        self.thresh = thresh
 
 
     def distance_from_center(self, rectangle):
@@ -103,9 +104,13 @@ class frameExtractor:
 
         # Step 1: grayscale + smoothering + gamma to make the frame darker + binary threshold
         gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
+        cv2.imwrite(r'img\test\gray.jpg', gray)
         blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-        gamma = frameExtractor.adjust_gamma(blurred, gamma=0.7)
+        cv2.imwrite(r'img\test\blurred.jpg', blurred)
+        gamma = frameExtractor.adjust_gamma(blurred, gamma=1.5)
+        cv2.imwrite(r'img\test\gamma.jpg', gamma)
         shapeMask = cv2.threshold(gamma, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
+        cv2.imwrite(r'img\test\shapeMask.jpg', shapeMask)
 
         # Step 2: extract regions of "interest".
         label_image = label(shapeMask)
@@ -144,13 +149,17 @@ class frameExtractor:
             # Darken + Binary threshold + rectangle detection.
             # If this technique fails, raise an error and use basic methods (except part).
 
-            crop_img = self.image[max(0, position[0] - 30):min(position[2] + 30, self.image.shape[0]),\
-                       max(0, position[1] - 30):min(self.image.shape[1], position[3] + 30)]
+            crop_img = self.image[max(0, position[0]):min(position[2], self.image.shape[0]),\
+                       max(0, position[1]):min(self.image.shape[1], position[3])]
 
             crop_blurred = cv2.GaussianBlur(crop_img, (5, 5), 0)
-            crop_gamma = frameExtractor.adjust_gamma(crop_blurred, gamma=0.4)
+            cv2.imwrite(r'img\test\crop_blurred.jpg', crop_blurred)
+            crop_gamma = frameExtractor.adjust_gamma(crop_blurred, gamma=1.1)
+            cv2.imwrite(r'img\test\crop_gamma.jpg', crop_gamma)
             crop_gray = cv2.cvtColor(crop_gamma, cv2.COLOR_BGR2GRAY)
-            crop_thresh = cv2.threshold(crop_gray, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
+            cv2.imwrite(r'img\test\crop_gray.jpg', crop_gray)
+            crop_thresh = self.thresh
+            cv2.imwrite(r'img\test\crop_thresh.jpg', crop_thresh)
 
             cnts = cv2.findContours(crop_thresh.copy(), cv2.RETR_EXTERNAL,
                                     cv2.CHAIN_APPROX_SIMPLE)
