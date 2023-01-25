@@ -34,8 +34,8 @@ def on_change(value):
     pass
 
 while True:
-    #ret, img = capture.read()
-    img = cv2.imread('el.jpg')
+    ret, img = capture.read()
+    #img = cv2.imread('el.jpg')
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     thresh = cv2.inRange(hsv, hsv_min, hsv_max)
     contours0, hierarchy = cv2.findContours(thresh.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
