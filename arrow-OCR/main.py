@@ -146,3 +146,4 @@ with open('time.txt', 'w') as f:
 cv2.destroyAllWindows()
 plt.show()
 print(writeTime)
+
