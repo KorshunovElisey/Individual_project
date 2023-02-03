@@ -60,6 +60,8 @@ class Sevenseg_ocr():
         res = f.final_prediction()
         image = cv2.putText(self.img, res, self.coordinates, self.font, self.fontScale, self.color, self.thickness, cv2.LINE_AA)
         return image
+
+        
 dst_folder_name = 'test/'
 file_path = r'Sevenseg_OCR\img\test.jpg'
 s = Sevenseg_ocr('cum', file_path, dst_folder_name)
