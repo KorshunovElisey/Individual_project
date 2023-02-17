@@ -7,7 +7,7 @@ import scipy.signal as signal
 from interface import App
 
 plt.style.use('Solarize_Light2')
-class Pizdec():
+class arrow_detection():
     def __init__(self, dst_file_name_value=str, dst_file_name_time=str):
         self.dst_file_name_value = dst_file_name_value
         self.dst_file_name_time = dst_file_name_time
