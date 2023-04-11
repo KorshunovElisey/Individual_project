@@ -119,9 +119,9 @@ class arrow_detection():
 
            
 #a = arrow_detection(self, dst_file_name_value=str, dst_file_name_time=str)
-#a.getVideo
-#a.threshVideo
-#a.videoRedaction
-#a.recordData
-#a.stopRecordData
-#a.chart
+#a.getVideo()
+#a.threshVideo()
+#a.videoRedaction()
+#a.recordData()
+#a.stopRecordData()
+#a.chart()
