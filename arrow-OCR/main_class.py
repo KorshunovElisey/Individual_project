@@ -78,7 +78,8 @@ class arrow_detection():
                     cv2.circle(self.img, centre, 5, self.YELLOW, 2)
                     cv2.putText(self.img, '%d' % int(angle), (centre[0] + 20, centre[1] - 20), cv2.FONT_HERSHEY_SIMPLEX, 1,
                                 self.YELLOW, 2)
-
+        cv2.imshow('d', thresh)
+        cv2.imshow('f', img)
     def recordData(self):
         if self.record == 1:
             if time.time() - self.t >= 0.01:
