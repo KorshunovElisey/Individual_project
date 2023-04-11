@@ -124,7 +124,8 @@ class frameExtractor:
         final_res = self.toFixed(float(final_res), self.digits)
         
         self.res_image = cv2.putText(img, res, s.coordinates, s.font, s.fontScale, s.color, s.thickness, cv2.LINE_AA)
-
+        cv2.imwrite(self.dst_folder_name + "/10result.png", self.res_image)
+        
         return(final_res)
 
 # resize_factor = 0.15
