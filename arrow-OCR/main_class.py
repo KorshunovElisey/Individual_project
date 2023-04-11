@@ -116,3 +116,6 @@ class arrow_detection():
             f.write(str(self.writeValue))
         with open(self.dst_file_name_time, 'w') as f:
             f.write(str(self.writeTime))
+
+           
+#a = arrow_detection(self, dst_file_name_value=str, dst_file_name_time=str)
