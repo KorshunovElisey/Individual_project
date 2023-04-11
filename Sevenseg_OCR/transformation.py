@@ -122,6 +122,8 @@ class frameExtractor:
         final_res = ''.join(final_res)
         
         final_res = self.toFixed(float(final_res), self.digits)
+        
+        self.res_image = cv2.putText(img, res, s.coordinates, s.font, s.fontScale, s.color, s.thickness, cv2.LINE_AA)
 
         return(final_res)
 
