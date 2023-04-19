@@ -139,6 +139,7 @@ class CameraWindowArrow(QMainWindow):
     @pyqtSlot(np.ndarray)
     def update_image(self, cv_img):
         """Updates the image_label with a new opencv image"""
+        # hsv_img = cv2.cvtColor(cv_img, cv2.COLOR_BGR2HSV)
         self.image_processor = arrow_detection(
             img=cv_img, 
             dst_folder_name=self.folder_path,

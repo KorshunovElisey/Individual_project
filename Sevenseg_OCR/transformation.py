@@ -3,6 +3,7 @@ import pytesseract as pts
 import cv2
 import operator
 import numpy as np
+import time
 
 pts.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
@@ -28,6 +29,8 @@ class frameExtractor:
         self.denoise_template_window_size = 7
         self.denoise_search_window_size = 21
         self.digits = digits_for_res
+        self.record = 1
+        
     
     def pre_process_image(self, img, dilate=False):
         proc = cv2.GaussianBlur(img.copy(), (9, 9), 0)
@@ -131,8 +134,12 @@ class frameExtractor:
         thickness = 2
         self.res_image = cv2.putText(self.img, res, coordinates, font, fontScale, color, thickness, cv2.LINE_AA)
         cv2.imwrite(self.dst_folder_name + "/10result.png", self.res_image)
-        
+        with open(self.dst_folder_name + "/result.txt", 'a') as file:
+            time_now = time.time()
+            file.write(str(time_now) + '\t' + str(final_res) + '\n' )
+
         return(final_res)
+
 
 # resize_factor = 0.15
 # margin_x = 0

@@ -53,9 +53,8 @@ class CameraWindowSevenSeg(QMainWindow):
         self.pushButton_stop.clicked.connect(self.close)
         self.label_deviceType.setText(self.device_type)
 
-        self.horizontalSlider_resizeFactor.valueChanged.connect(
-            self._handle_slider_resizeFactor
-        )
+
+        self.horizontalSlider_resizeFactor.valueChanged.connect(self._handle_slider_resizeFactor)
         self.horizontalSlider_marginX.valueChanged.connect(self._handle_slider_marginX)
         self.horizontalSlider_marginY.valueChanged.connect(self._handle_slider_marginY)
 
@@ -76,19 +75,22 @@ class CameraWindowSevenSeg(QMainWindow):
     def _handle_slider_marginY(self, value: int):
         self.default_margin_y = value
 
+
+
+
     @pyqtSlot(np.ndarray)
     def update_image(self, cv_img):
         """Updates the image_label with a new opencv image"""
         img_grey = cv2.cvtColor(cv_img, cv2.COLOR_RGB2GRAY)
-        image_processor = frameExtractor(
+        self.image_processor = frameExtractor(
             img=img_grey,
             resize_factor=self.default_resize_factor,
             margin_x=self.default_margin_x,
             margin_y=self.default_margin_y,
             dst_folder_name=self.folder_path,
         )
-        image_processor.final_prediction()
-        processed_image = image_processor.res_image
+        self.image_processor.final_prediction()
+        processed_image = self.image_processor.res_image
 
         qt_img = convert_cv_to_qt_pixmap(
             processed_image, self.camera_display_width, self.camera_display_height

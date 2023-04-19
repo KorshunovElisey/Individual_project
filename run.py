@@ -2,7 +2,6 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
-QT_PLUGIN_PATH = 'C:\Users\gabriel\anaconda3\Library\plugins'
 
 from interface.main_window import MainWindow
 
