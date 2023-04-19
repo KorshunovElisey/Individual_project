@@ -42,16 +42,11 @@ class arrow_detection():
         self.t = time.time()
         self.origin = time.time()
 
-    def getVideo(self):
-        ret, self.img = self.capture.read()
-        return self.img
 
-    def threshvideo(self):
+    def mainBody(self):
+        ret, self.img = self.capture.read()
         self.hsv = cv2.cvtColor(self.img, cv2.COLOR_BGR2HSV)
         self.thresh = cv2.inRange(self.hsv, self.hsv_min, self.hsv_max)
-        return self.thresh
-
-    def videoRedaction(self):
         contours0, hierarchy = cv2.findContours(self.thresh.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         cv2.drawContours(image=self.img, contours=contours0, contourIdx=-1, color=self.BLUE, thickness=2, lineType=cv2.LINE_AA)
         reference = [1, 0]
