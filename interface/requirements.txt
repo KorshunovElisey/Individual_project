@@ -1,4 +1,0 @@
-pyqt5
-opencv-python
-pyqt5-plugins
-opencv-python-headless
