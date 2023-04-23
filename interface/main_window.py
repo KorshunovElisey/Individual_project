@@ -1,5 +1,6 @@
+from collections import defaultdict
 from pathlib import Path
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 import numpy as np
 from PyQt5 import QtWidgets, uic
@@ -21,7 +22,7 @@ class MainWindow(QMainWindow):
 
     selected_camera: int = 0
     selected_device_type: str = DEVICE_TYPES[0]
-    video_thread: Optional[VideoThread] = None
+    video_thread_by_camera_number: Dict[int, Optional[VideoThread]] = defaultdict(lambda: None)
     folder_path: Optional[str] = None
     camera_windows: List[QMainWindow] = []
 
@@ -59,7 +60,7 @@ class MainWindow(QMainWindow):
                 camera_index=self.selected_camera,
                 device_type=self.selected_device_type,
                 folder_path=self.folder_path,
-                video_thread=self.video_thread,
+                video_thread=self.video_thread_by_camera_number[self.selected_camera],
             )
             self.camera_windows.append(camera_window)
             camera_window.show()
@@ -69,7 +70,7 @@ class MainWindow(QMainWindow):
                 camera_index=self.selected_camera,
                 device_type=self.selected_device_type,
                 folder_path=self.folder_path,
-                video_thread=self.video_thread,
+                video_thread=self.video_thread_by_camera_number[self.selected_camera],
             )
             self.camera_windows.append(camera_window2)
             camera_window2.show()
@@ -94,13 +95,19 @@ class MainWindow(QMainWindow):
 
     def _init_video_capture(self):
         # create the video capture thread
-        if self.video_thread:
-            self.video_thread.stop_flag = True
-        self.video_thread = VideoThread(camera_index=self.selected_camera)
+        if not self.video_thread_by_camera_number[self.selected_camera]:
+            self.video_thread_by_camera_number[self.selected_camera] = VideoThread(camera_index=self.selected_camera)
+            # connect its signal to the update_image slot
+            self.video_thread_by_camera_number[self.selected_camera].change_pixmap_signal.connect(self.update_image)
+            # start the thread
+            self.video_thread_by_camera_number[self.selected_camera].start()
+        for camera_thread in self.video_thread_by_camera_number.values():
+            try:
+                camera_thread.change_pixmap_signal.disconnect(self.update_image)
+            except TypeError:
+                pass
         # connect its signal to the update_image slot
-        self.video_thread.change_pixmap_signal.connect(self.update_image)
-        # start the thread
-        self.video_thread.start()
+        self.video_thread_by_camera_number[self.selected_camera].change_pixmap_signal.connect(self.update_image)
 
     @pyqtSlot(np.ndarray)
     def update_image(self, cv_img):

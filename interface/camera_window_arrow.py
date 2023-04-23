@@ -162,3 +162,5 @@ class CameraWindowArrow(QMainWindow):
         )
         self.label_image.setPixmap(qt_img)
 
+
+

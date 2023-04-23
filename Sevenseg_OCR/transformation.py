@@ -7,6 +7,8 @@ import time
 
 pts.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
+time_n = time.time()
+
 class frameExtractor:
     def __init__(self, resize_factor, margin_x, margin_y, img=None, src_file_name=None, dst_folder_name=None, digits_for_res=0):
         self.img = img
@@ -66,16 +68,23 @@ class frameExtractor:
         bottom = max(bottom_left[1], bottom_right[1])
         return img[top:bottom, left:right]
     
-    def toFixed(self, numObj, digits):
-        return f"{numObj:.{digits}f}"
+    def toFixed(numObj, digits, etc):
+        numObj = str(digits)
+        new_res = []
+        for i in range(len(numObj)):
+            if len(numObj)-i == etc: 
+                new_res.append('.')
+            new_res.append(numObj[i])
+        new_res = ''.join(new_res)
+        return new_res
     
     def final_prediction(self):
         if self.img is None:
             self.img = cv2.imread(self.src_file_name, cv2.IMREAD_GRAYSCALE)
         proc = self.pre_process_image(self.img, dilate=True)
-        corners = self.find_corners_of_largest_polygon(proc)
-        self.img = self.crop(self.img, corners)
-        cv2.imwrite(self.dst_folder_name + "/1cropped.png", self.img)
+        # corners = self.find_corners_of_largest_polygon(proc)
+        # self.img = self.crop(self.img, corners)
+        # cv2.imwrite(self.dst_folder_name + "/1cropped.png", self.img)
         self.img = self.img[self.margin_x : self.img.shape[0] - self.margin_x, self.margin_y : self.img.shape[1] - self.margin_y]
         cv2.imwrite(self.dst_folder_name + "/2cropped.png", self.img)
         ## brightness and contrast
@@ -108,9 +117,9 @@ class frameExtractor:
         self.img = cv2.erode(self.img, kernel, iterations=self.erosion_iterations)
         cv2.imwrite(self.dst_folder_name + "/7erode.png", self.img)
         # dilate
-        # kernel = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], np.uint8)
-        # self.img = cv2.dilate(self.img, kernel)
-        # cv2.imwrite("test/8dilate.png", self.img)
+        kernel = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], np.uint8)
+        self.img = cv2.dilate(self.img, kernel)
+        cv2.imwrite("test/8dilate.png", self.img)
         self.img = cv2.resize(self.img, (0, 0), fx=self.resize_factor, fy=self.resize_factor)
         cv2.imwrite(self.dst_folder_name + "/9downscale.png", self.img) 
         res = pts.image_to_string(
@@ -118,22 +127,24 @@ class frameExtractor:
             lang=self.pts_model,
             config=f"--psm {self.psm} --oem {self.oem} -c tessedit_char_whitelist=.0123456789",
         )
+
         final_res = []
         for sub in res:
             final_res.append(sub.replace("\n", ""))
         
         final_res = ''.join(final_res)
         final_res = final_res.replace(".", "")
-        
-        final_res = self.toFixed(float(final_res), self.digits)
-
+        if final_res == '':
+           final_res = 0
+        final_res = self.toFixed(final_res, self.digits)
+        print(final_res)
         # Display result settings:
         coordinates = (100, 100)
         font = cv2.FONT_HERSHEY_SIMPLEX
         fontScale = 1
         color = (255, 0, 255)
         thickness = 2
-        print(final_res)
+        # print(final_res)
         self.res_image = cv2.putText(self.img, res, coordinates, font, fontScale, color, thickness, cv2.LINE_AA)
         cv2.imwrite(self.dst_folder_name + "/10res_img.png", self.res_image)
         with open(self.dst_folder_name + "/result.txt", 'a') as file:
@@ -146,6 +157,18 @@ class frameExtractor:
 # resize_factor = 0.15
 # margin_x = 0
 # margin_y = 0
-# f = frameExtractor(resize_factor, margin_x, margin_y, img=None, src_file_name=r'img\test.jpg', dst_folder_name='test/')
-# print(f.final_prediction())
+
+# while True:
+#     print(time.time()-time_n)
+#     time_n = time.time()
+#     cv_vid = cv2.VideoCapture(0)
+#     ret, cv_img = cv_vid.read()
+#     img_grey = cv2.cvtColor(cv_img, cv2.COLOR_RGB2GRAY)
+#     image_processor = frameExtractor(resize_factor, margin_x, margin_y, img=img_grey, src_file_name=None, dst_folder_name='F:\PyhonScripts\Individual_project\kort')
+#     image_processor.final_prediction()
+#     processed_image = image_processor.res_image
+#     cv2.imshow('d', processed_image)
+#     k = cv2.waitKey(30) & 0xFF
+#     if k == 27:
+#         break
     

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>790</width>
-    <height>515</height>
+    <height>535</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -116,7 +116,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Hsv max H</string>
+     <string>color_max</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -129,7 +129,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Hsv max S</string>
+     <string>saturation_max</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -142,7 +142,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Hsv max V</string>
+     <string>light_max</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_stop">
@@ -168,7 +168,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Hsv min V</string>
+     <string>light</string>
     </property>
    </widget>
    <widget class="QSlider" name="horizontalSlider_HsvminS">
@@ -213,7 +213,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Hsv min S</string>
+     <string>saturation</string>
     </property>
    </widget>
    <widget class="QSlider" name="horizontalSlider_HsvminH">
@@ -242,7 +242,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Hsv min H</string>
+     <string>color</string>
     </property>
    </widget>
    <widget class="QSlider" name="horizontalSlider_areamin">

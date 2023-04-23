@@ -8,6 +8,8 @@ import scipy.signal as signal
 
 plt.style.use('Solarize_Light2')
 
+time_n = time.time()
+
 class arrow_detection():
     def __init__(self, img, dst_folder_name=str, hsvminH=int, hsvminS=int, hsvminV=int,
                  hsvmaxH=int, hsvmaxS=int, hsvmaxV=int, area_min=int, area_max=int, shift=int, factor=int, record=int):
@@ -119,3 +121,30 @@ class arrow_detection():
             f.write(str(self.writeValue))
         with open(self.dst_file_name_time, 'w') as f:
             f.write(str(self.writeTime))
+
+# while True:
+#     print(time.time()-time_n)
+#     time_n = time.time()
+#     cv_vid = cv2.VideoCapture(0)
+#     ret, cv_img = cv_vid.read()
+
+#     image_processor = arrow_detection(
+#                 img=cv_img, 
+#                 dst_folder_name="F:\PyhonScripts\Individual_project\kort",
+#                 hsvminH=0,
+#                 hsvminS=73,
+#                 hsvminV=190,
+#                 hsvmaxH=255,
+#                 hsvmaxS=255,
+#                 hsvmaxV=255,
+#                 area_min=0,
+#                 area_max=50000,
+#                 shift=0,
+#                 factor=1
+#             )
+#     image_processor.videoRedaction()
+#     processed_image = image_processor.res_image
+#     cv2.imshow('d', processed_image)
+#     k = cv2.waitKey(30) & 0xFF
+#     if k == 27:
+#         break
