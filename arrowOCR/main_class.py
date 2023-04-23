@@ -4,6 +4,7 @@ import cv2
 import math
 import time
 import scipy.signal as signal
+from numba import prange, jit
 
 
 plt.style.use('Solarize_Light2')
@@ -102,16 +103,16 @@ class arrow_detection():
         sos = signal.butter(50, 35, 'lp', fs=len(self.recordList), output='sos')
         trueRecord = np.copy(self.recordList)
         print(len(self.recordList))
-        for i in range(len(self.recordList)):
+        for i in prange(len(self.recordList)):
             if i <= 5 or i > len(self.recordList) - 6:
                 trueRecord[i] = self.recordList[i]
             else:
                 count = 0
-                for j in range(i - 3, i + 3):
+                for j in prange(i - 3, i + 3):
                     count += self.recordList[j]
                 trueRecord[i] = count / 7
         filtered = signal.sosfiltfilt(sos, self.recordList)
-        for i in range(0, len(self.timeList), 5):
+        for i in prange(0, len(self.timeList), 5):
             self.writeTime = np.append(self.writeTime, self.timeList[i])
             self.writeValue = np.append(self.writeValue, int(filtered[i]))
             self.writeValue2 = np.append(self.writeValue2, trueRecord[i])
@@ -122,29 +123,31 @@ class arrow_detection():
         with open(self.dst_file_name_time, 'w') as f:
             f.write(str(self.writeTime))
 
-# while True:
-#     print(time.time()-time_n)
-#     time_n = time.time()
-#     cv_vid = cv2.VideoCapture(0)
-#     ret, cv_img = cv_vid.read()
-
-#     image_processor = arrow_detection(
-#                 img=cv_img, 
-#                 dst_folder_name="F:\PyhonScripts\Individual_project\kort",
-#                 hsvminH=0,
-#                 hsvminS=73,
-#                 hsvminV=190,
-#                 hsvmaxH=255,
-#                 hsvmaxS=255,
-#                 hsvmaxV=255,
-#                 area_min=0,
-#                 area_max=50000,
-#                 shift=0,
-#                 factor=1
-#             )
-#     image_processor.videoRedaction()
-#     processed_image = image_processor.res_image
-#     cv2.imshow('d', processed_image)
-#     k = cv2.waitKey(30) & 0xFF
-#     if k == 27:
-#         break
+while True:
+    print(time.time()-time_n)
+    time_n = time.time()
+    cv_vid = cv2.VideoCapture(0)
+    ret, cv_img = cv_vid.read()
+    print("Before " + str(time.time()-time_n))
+    image_processor = arrow_detection(
+                img=cv_img, 
+                dst_folder_name="F:\PyhonScripts\Individual_project\kort",
+                hsvminH=0,
+                hsvminS=73,
+                hsvminV=190,
+                hsvmaxH=255,
+                hsvmaxS=255,
+                hsvmaxV=255,
+                area_min=0,
+                area_max=50000,
+                shift=0,
+                factor=1
+            )
+    print("After " + str(time.time()-time_n))
+    image_processor.videoRedaction()
+    print("After1 " + str(time.time()-time_n))
+    processed_image = image_processor.res_image
+    cv2.imshow('d', processed_image)
+    k = cv2.waitKey(30) & 0xFF
+    if k == 27:
+        break

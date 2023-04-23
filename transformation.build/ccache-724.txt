@@ -1,0 +1,261 @@
+[2023-04-23T23:09:52.191198 16284] === CCACHE 4.6 STARTED =========================================
+[2023-04-23T23:09:52.191198 16284] Config: (default) absolute_paths_in_stderr = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) base_dir = 
+[2023-04-23T23:09:52.191198 16284] Config: (environment) cache_dir = C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-23T23:09:52.191198 16284] Config: (default) compiler = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) compiler_check = mtime
+[2023-04-23T23:09:52.191198 16284] Config: (default) compiler_type = auto
+[2023-04-23T23:09:52.191198 16284] Config: (default) compression = true
+[2023-04-23T23:09:52.191198 16284] Config: (default) compression_level = 0
+[2023-04-23T23:09:52.191198 16284] Config: (default) cpp_extension = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) debug = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) debug_dir = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) depend_mode = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) direct_mode = true
+[2023-04-23T23:09:52.191198 16284] Config: (default) disable = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) extra_files_to_hash = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) file_clone = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) hard_link = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) hash_dir = true
+[2023-04-23T23:09:52.191198 16284] Config: (default) ignore_headers_in_manifest = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) ignore_options = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) inode_cache = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) keep_comments_cpp = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) limit_multiple = 0.8
+[2023-04-23T23:09:52.191198 16284] Config: (environment) log_file = F:\PyhonScripts\Individual_project\transformation.build\ccache-724.txt
+[2023-04-23T23:09:52.191198 16284] Config: (default) max_files = 0
+[2023-04-23T23:09:52.191198 16284] Config: (default) max_size = 5.0G
+[2023-04-23T23:09:52.191198 16284] Config: (default) namespace = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) path = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) pch_external_checksum = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) prefix_command = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) prefix_command_cpp = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) read_only = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) read_only_direct = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) recache = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) reshare = false
+[2023-04-23T23:09:52.191198 16284] Config: (default) run_second_cpp = true
+[2023-04-23T23:09:52.191198 16284] Config: (default) secondary_storage = 
+[2023-04-23T23:09:52.191198 16284] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-23T23:09:52.191198 16284] Config: (default) stats = true
+[2023-04-23T23:09:52.191198 16284] Config: (default) stats_log = 
+[2023-04-23T23:09:52.191198 16284] Config: (default) temporary_dir = C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-23T23:09:52.191198 16284] Config: (default) umask = 
+[2023-04-23T23:09:52.192198 16284] Command line: C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o __helpers.o -c -flto -fuse-linker-plugin -fno-fat-lto-objects -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=0 -D_NUITKA_EXE -IC:\Anaconda3\envs\IndividualProject\include -I. -IC:\ANACON~1\envs\INDIVI~1\lib\SITE-P~1\nuitka\build\include -IC:\ANACON~1\envs\INDIVI~1\lib\SITE-P~1\nuitka\build\static_src __helpers.c
+static_src\MainProgram.c
+[2023-04-23T23:09:52.200200 16284] Hostname: DESKTOP-811CFA5
+[2023-04-23T23:09:52.200200 16284] Working directory: F:/PyhonScripts/Individual_project/transformation.build
+[2023-04-23T23:09:52.200200 16284] Compiler type: gcc
+[2023-04-23T23:09:52.200200 15696] Hostname: DESKTOP-811CFA5
+[2023-04-23T23:09:52.200200 15696] Working directory: F:/PyhonScripts/Individual_project/transformation.build
+[2023-04-23T23:09:52.200200 15696] Compiler type: gcc
+[2023-04-23T23:09:52.200200 19428] Hostname: DESKTOP-811CFA5
+[2023-04-23T23:09:52.200200 19428] Working directory: F:/PyhonScripts/Individual_project/transformation.build
+[2023-04-23T23:09:52.200200 19428] Compiler type: gcc
+[2023-04-23T23:09:52.200200 1476 ] Hostname: DESKTOP-811CFA5
+[2023-04-23T23:09:52.200200 1476 ] Working directory: F:/PyhonScripts/Individual_project/transformation.build
+[2023-04-23T23:09:52.200200 1476 ] Compiler type: gcc
+[2023-04-23T23:09:52.201200 19096] Source file: static_src\MainProgram.c
+[2023-04-23T23:09:52.201200 16284] Source file: __helpers.c
+inProgram.o
+[2023-04-23T23:09:52.201200 16284] Object file: __helpers.o
+
+[2023-04-23T23:09:52.201200 15696] Object file: __constants.o
+[2023-04-23T23:09:52.201200 19428] Object file: __loader.o
+[2023-04-23T23:09:52.201200 1476 ] Source file: module.__main__.c
+[2023-04-23T23:09:52.201200 1476 ] Object file: module.__main__.o
+[2023-04-23T23:09:52.201200 16284] Trying direct lookup
+[2023-04-23T23:09:52.201200 19096] Trying direct lookup
+[2023-04-23T23:09:52.201200 1476 ] Trying direct lookup
+[2023-04-23T23:09:52.201200 16284] No 6767vrs1dcoeron7tvfb23nrm1fhlf6b6 in primary storage
+[2023-04-23T23:09:52.201200 19428] No c71fsfj5adi7us994gk1221g7rjc2i9qc in primary storage
+[2023-04-23T23:09:52.201200 15696] No 828eghnnsbb9vtp8l9vb4agmj84nk2t1k in primary storage
+[2023-04-23T23:09:52.201200 19096] No 01f2n108mee3lveno72lfn3h2vght9b0a in primary storage
+[2023-04-23T23:09:52.202200 1476 ] No af281nmse0ca7ho26m9ntsjcfh4e8qpei in primary storage
+[2023-04-23T23:09:52.204200 19096] Running preprocessor
+[2023-04-23T23:09:52.205200 16284] Running preprocessor
+[2023-04-23T23:09:52.205200 15696] Running preprocessor
+[2023-04-23T23:09:52.205200 19428] Running preprocessor
+[2023-04-23T23:09:52.205200 1476 ] Running preprocessor
+[2023-04-23T23:09:52.749473 1836 ] === CCACHE 4.6 STARTED =========================================
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) absolute_paths_in_stderr = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) base_dir = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (environment) cache_dir = C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) compiler = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) compiler_check = mtime
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) compiler_type = auto
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) compression = true
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) compression_level = 0
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) cpp_extension = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) debug = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) debug_dir = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) depend_mode = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) direct_mode = true
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) disable = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) extra_files_to_hash = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) file_clone = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) hard_link = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) hash_dir = true
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) ignore_headers_in_manifest = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) ignore_options = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) inode_cache = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) keep_comments_cpp = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) limit_multiple = 0.8
+[2023-04-23T23:09:52.749473 1836 ] Config: (environment) log_file = F:\PyhonScripts\Individual_project\transformation.build\ccache-724.txt
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) max_files = 0
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) max_size = 5.0G
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) namespace = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) path = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) pch_external_checksum = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) prefix_command = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) prefix_command_cpp = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) read_only = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) read_only_direct = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) recache = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) reshare = false
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) run_second_cpp = true
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) secondary_storage = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) stats = true
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) stats_log = 
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) temporary_dir = C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-23T23:09:52.749473 1836 ] Config: (default) umask = 
+[2023-04-23T23:09:52.749473 1836 ] Command line: C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o static_src\CompiledFunctionType.o -c -flto -fuse-linker-plugin -fno-fat-lto-objects -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=0 -D_NUITKA_EXE -IC:\Anaconda3\envs\IndividualProject\include -I. -IC:\ANACON~1\envs\INDIVI~1\lib\SITE-P~1\nuitka\build\include -IC:\ANACON~1\envs\INDIVI~1\lib\SITE-P~1\nuitka\build\static_src static_src\CompiledFunctionType.c
+[2023-04-23T23:09:52.754475 1836 ] Hostname: DESKTOP-811CFA5
+[2023-04-23T23:09:52.754475 1836 ] Working directory: F:/PyhonScripts/Individual_project/transformation.build
+[2023-04-23T23:09:52.754475 1836 ] Compiler type: gcc
+[2023-04-23T23:09:52.754475 1836 ] Source file: static_src\CompiledFunctionType.c
+[2023-04-23T23:09:52.754475 1836 ] Object file: static_src\CompiledFunctionType.o
+[2023-04-23T23:09:52.754475 1836 ] Trying direct lookup
+[2023-04-23T23:09:52.755475 1836 ] No 3816u6ijj5873eg5mdoo7mu5mcr5a7p86 in primary storage
+[2023-04-23T23:09:52.756475 1836 ] Running preprocessor
+[2023-04-23T23:09:53.056542 19428] Got result key from preprocessor
+[2023-04-23T23:09:53.056542 19428] No a0b3o4slptr00mk058sd8p8q0psg21s5e in primary storage
+[2023-04-23T23:09:53.056542 19428] Running real compiler
+[2023-04-23T23:09:53.175569 19428] Using default compression level 1
+[2023-04-23T23:09:53.175569 19428] Storing embedded entry #0 .o (9515 bytes) from __loader.o
+[2023-04-23T23:09:53.176569 19428] Stored a0b3o4slptr00mk058sd8p8q0psg21s5e in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/0/b3o4slptr00mk058sd8p8q0psg21s5eR)
+[2023-04-23T23:09:53.176569 19428] Adding result key to C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/7/1fsfj5adi7us994gk1221g7rjc2i9qcM
+[2023-04-23T23:09:53.185572 19428] Using default compression level 1
+[2023-04-23T23:09:53.186572 19428] Stored c71fsfj5adi7us994gk1221g7rjc2i9qc in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/7/1fsfj5adi7us994gk1221g7rjc2i9qcM)
+[2023-04-23T23:09:53.186572 19428] Result: cache_miss
+[2023-04-23T23:09:53.186572 19428] Result: direct_cache_miss
+[2023-04-23T23:09:53.186572 19428] Result: preprocessed_cache_miss
+[2023-04-23T23:09:53.186572 19428] Result: primary_storage_miss
+[2023-04-23T23:09:53.187572 19428] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2023-04-23T23:09:53.188572 19428] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2023-04-23T23:09:53.188572 19428] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-23T23:09:53.189572 19428] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-23T23:09:53.189572 19428] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.Uf7nOu
+[2023-04-23T23:09:53.189572 19428] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.YnVN2j
+[2023-04-23T23:09:53.189572 19428] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.rKzuXa
+[2023-04-23T23:09:53.189572 19428] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.6LorJq.i
+[2023-04-23T23:09:53.190572 19428] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.6LorJq
+[2023-04-23T23:09:54.716703 16284] Got result key from preprocessor
+[2023-04-23T23:09:54.716703 15696] Got result key from preprocessor
+[2023-04-23T23:09:54.716703 16284] No d6c3oo8n0mva4j2kv54umtnu2lp1hj796 in primary storage
+[2023-04-23T23:09:54.716703 15696] No 203f9frplns128mggeniufvpdvtb8oqvc in primary storage
+[2023-04-23T23:09:54.716703 15696] Running real compiler
+[2023-04-23T23:09:54.716703 19096] Got result key from preprocessor
+[2023-04-23T23:09:54.716703 19096] No 082f5t9120hd3edudaisvjf57e80fitis in primary storage
+[2023-04-23T23:09:54.716703 19096] Running real compiler
+[2023-04-23T23:09:54.772715 1476 ] Got result key from preprocessor
+[2023-04-23T23:09:54.773715 1476 ] No b202n2t0ogkvp4ea3t43ucmor2l2vkrtm in primary storage
+[2023-04-23T23:09:54.773715 1476 ] Running real compiler
+[2023-04-23T23:09:55.856663 16284] Using default compression level 1
+[2023-04-23T23:09:55.856663 16284] Storing embedded entry #0 .o (2647 bytes) from __helpers.o
+[2023-04-23T23:09:55.856663 15696] Using default compression level 1
+[2023-04-23T23:09:55.856663 15696] Storing embedded entry #0 .o (14291 bytes) from __constants.o
+[2023-04-23T23:09:55.857664 16284] Stored d6c3oo8n0mva4j2kv54umtnu2lp1hj796 in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/6/c3oo8n0mva4j2kv54umtnu2lp1hj796R)
+[2023-04-23T23:09:55.857664 15696] Stored 203f9frplns128mggeniufvpdvtb8oqvc in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/0/3f9frplns128mggeniufvpdvtb8oqvcR)
+[2023-04-23T23:09:55.858665 16284] Adding result key to C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/7/67vrs1dcoeron7tvfb23nrm1fhlf6b6M
+[2023-04-23T23:09:55.858665 15696] Adding result key to C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/2/8eghnnsbb9vtp8l9vb4agmj84nk2t1kM
+[2023-04-23T23:09:55.884670 16284] Using default compression level 1
+[2023-04-23T23:09:55.885670 15696] Using default compression level 1
+[2023-04-23T23:09:55.886671 16284] Stored 6767vrs1dcoeron7tvfb23nrm1fhlf6b6 in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/7/67vrs1dcoeron7tvfb23nrm1fhlf6b6M)
+[2023-04-23T23:09:55.886671 15696] Stored 828eghnnsbb9vtp8l9vb4agmj84nk2t1k in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/2/8eghnnsbb9vtp8l9vb4agmj84nk2t1kM)
+[2023-04-23T23:09:55.888671 16284] Result: cache_miss
+[2023-04-23T23:09:55.888671 16284] Result: direct_cache_miss
+[2023-04-23T23:09:55.888671 16284] Result: preprocessed_cache_miss
+[2023-04-23T23:09:55.888671 15696] Result: direct_cache_miss
+s
+[2023-04-23T23:09:55.888671 15696] Result: preprocessed_cache_miss
+[2023-04-23T23:09:55.888671 15696] Result: primary_storage_miss
+[2023-04-23T23:09:55.889671 16284] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/stats.lock
+[2023-04-23T23:09:55.889671 15696] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-23T23:09:55.890671 15696] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-23T23:09:55.890671 16284] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/stats.lock
+[2023-04-23T23:09:55.890671 15696] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/stats.lock
+[2023-04-23T23:09:55.890671 16284] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2023-04-23T23:09:55.891671 15696] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/stats.lock
+[2023-04-23T23:09:55.891671 15696] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.Apz71O
+[2023-04-23T23:09:55.891671 16284] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2023-04-23T23:09:55.891671 15696] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.O22166
+[2023-04-23T23:09:55.891671 15696] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.H6N10c
+[2023-04-23T23:09:55.891671 16284] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.6n7Pin
+[2023-04-23T23:09:55.892672 16284] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.yybTW1
+[2023-04-23T23:09:55.892672 15696] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.U4UWRu.i
+[2023-04-23T23:09:55.892672 16284] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.v4XfVP
+[2023-04-23T23:09:55.892672 16284] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.3y6jHj.i
+[2023-04-23T23:09:55.892672 15696] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.U4UWRu
+[2023-04-23T23:09:55.893672 16284] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.3y6jHj
+[2023-04-23T23:09:55.938682 19096] Using default compression level 1
+[2023-04-23T23:09:55.939682 19096] Storing embedded entry #0 .o (39573 bytes) from static_src\MainProgram.o
+[2023-04-23T23:09:55.940683 19096] Stored 082f5t9120hd3edudaisvjf57e80fitis in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/8/2f5t9120hd3edudaisvjf57e80fitisR)
+[2023-04-23T23:09:55.940683 19096] Adding result key to C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/1/f2n108mee3lveno72lfn3h2vght9b0aM
+[2023-04-23T23:09:55.966688 19096] Using default compression level 1
+[2023-04-23T23:09:55.968689 19096] Stored 01f2n108mee3lveno72lfn3h2vght9b0a in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/1/f2n108mee3lveno72lfn3h2vght9b0aM)
+[2023-04-23T23:09:55.968689 19096] Result: cache_miss
+[2023-04-23T23:09:55.968689 19096] Result: direct_cache_miss
+[2023-04-23T23:09:55.968689 19096] Result: preprocessed_cache_miss
+[2023-04-23T23:09:55.968689 19096] Result: primary_storage_miss
+[2023-04-23T23:09:55.968689 19096] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-23T23:09:55.969689 19096] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-23T23:09:55.969689 19096] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-23T23:09:55.971689 19096] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-23T23:09:55.971689 19096] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.XxjK3H
+[2023-04-23T23:09:55.971689 19096] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.5sCTMz
+[2023-04-23T23:09:55.971689 19096] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.XmC69s
+[2023-04-23T23:09:55.972689 19096] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.E0UQQS.i
+[2023-04-23T23:09:55.972689 19096] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.E0UQQS
+[2023-04-23T23:09:56.213743 1836 ] Got result key from preprocessor
+[2023-04-23T23:09:56.213743 1836 ] No 69fb8vabgoefa2n21dmn4ps7k91bqujn8 in primary storage
+[2023-04-23T23:09:56.213743 1836 ] Running real compiler
+[2023-04-23T23:09:56.329770 1476 ] Using default compression level 1
+[2023-04-23T23:09:56.329770 1476 ] Storing embedded entry #0 .o (353473 bytes) from module.__main__.o
+[2023-04-23T23:09:56.331770 1476 ] Stored b202n2t0ogkvp4ea3t43ucmor2l2vkrtm in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/2/02n2t0ogkvp4ea3t43ucmor2l2vkrtmR)
+[2023-04-23T23:09:56.331770 1476 ] Adding result key to C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/f/281nmse0ca7ho26m9ntsjcfh4e8qpeiM
+[2023-04-23T23:09:56.354775 1476 ] Using default compression level 1
+[2023-04-23T23:09:56.356775 1476 ] Stored af281nmse0ca7ho26m9ntsjcfh4e8qpei in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/f/281nmse0ca7ho26m9ntsjcfh4e8qpeiM)
+[2023-04-23T23:09:56.356775 1476 ] Result: cache_miss
+[2023-04-23T23:09:56.356775 1476 ] Result: direct_cache_miss
+[2023-04-23T23:09:56.356775 1476 ] Result: preprocessed_cache_miss
+[2023-04-23T23:09:56.356775 1476 ] Result: primary_storage_miss
+[2023-04-23T23:09:56.356775 1476 ] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-23T23:09:56.368778 1476 ] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-23T23:09:56.369779 1476 ] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-23T23:09:56.370779 1476 ] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-23T23:09:56.370779 1476 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.5uA7XN
+[2023-04-23T23:09:56.370779 1476 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.LW2ose
+[2023-04-23T23:09:56.370779 1476 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.IAaBBf
+[2023-04-23T23:09:56.370779 1476 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.iQLtgW.i
+[2023-04-23T23:09:56.371779 1476 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.iQLtgW
+[2023-04-23T23:10:00.865981 1836 ] Using default compression level 1
+[2023-04-23T23:10:00.866981 1836 ] Storing embedded entry #0 .o (3492714 bytes) from static_src\CompiledFunctionType.o
+[2023-04-23T23:10:00.878984 1836 ] Stored 69fb8vabgoefa2n21dmn4ps7k91bqujn8 in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/9/fb8vabgoefa2n21dmn4ps7k91bqujn8R)
+[2023-04-23T23:10:00.878984 1836 ] Adding result key to C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/8/16u6ijj5873eg5mdoo7mu5mcr5a7p86M
+[2023-04-23T23:10:00.904990 1836 ] Using default compression level 1
+[2023-04-23T23:10:00.906990 1836 ] Stored 3816u6ijj5873eg5mdoo7mu5mcr5a7p86 in primary storage (C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/8/16u6ijj5873eg5mdoo7mu5mcr5a7p86M)
+[2023-04-23T23:10:00.913903 1836 ] Result: cache_miss
+[2023-04-23T23:10:00.913903 1836 ] Result: direct_cache_miss
+[2023-04-23T23:10:00.913903 1836 ] Result: preprocessed_cache_miss
+[2023-04-23T23:10:00.913903 1836 ] Result: primary_storage_miss
+[2023-04-23T23:10:00.913903 1836 ] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2023-04-23T23:10:00.914414 1836 ] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2023-04-23T23:10:00.914414 1836 ] Acquired lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/stats.lock
+[2023-04-23T23:10:00.915407 1836 ] Releasing lock C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/stats.lock
+[2023-04-23T23:10:00.916409 1836 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.9nOHn1
+[2023-04-23T23:10:00.916409 1836 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.GWnqUP
+[2023-04-23T23:10:00.916409 1836 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.zrT7fc
+[2023-04-23T23:10:00.916409 1836 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.nPjgb4.i
+[2023-04-23T23:10:00.918408 1836 ] Unlink C:\Users\Elisey\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.nPjgb4
