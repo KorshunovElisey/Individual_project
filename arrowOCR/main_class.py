@@ -12,9 +12,9 @@ plt.style.use('Solarize_Light2')
 time_n = time.time()
 
 class arrow_detection():
-    def __init__(self, img, dst_folder_name=str, hsvminH=int, hsvminS=int, hsvminV=int,
+    def __init__(self, dst_folder_name=str, hsvminH=int, hsvminS=int, hsvminV=int,
                  hsvmaxH=int, hsvmaxS=int, hsvmaxV=int, area_min=int, area_max=int, shift=int, factor=int, record=int):
-        self.img = img
+
         self.dst_folder_name = dst_folder_name
         self.hsvminH = hsvminH
         self.hsvminS = hsvminS
@@ -47,18 +47,18 @@ class arrow_detection():
 
 
 
-    def videoRedaction(self):
-        self.hsv = cv2.cvtColor(self.img, cv2.COLOR_BGR2HSV)
+    def videoRedaction(self, img):
+        self.hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         self.thresh = cv2.inRange(self.hsv, self.hsv_min, self.hsv_max)
         contours0, hierarchy = cv2.findContours(self.thresh.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        cv2.drawContours(image=self.img, contours=contours0, contourIdx=-1, color=self.BLUE, thickness=2, lineType=cv2.LINE_AA)
+        cv2.drawContours(image=img, contours=contours0, contourIdx=-1, color=self.BLUE, thickness=2, lineType=cv2.LINE_AA)
         reference = [1, 0]
         self.shift = math.pi * self.shift / 180 if self.factor == 1 else - math.pi * self.shift / 180
         self.referenceNew[0] = reference[0] * math.cos(self.shift) - reference[1] * math.sin(self.shift)
         self.referenceNew[1] = reference[1] * math.cos(self.shift) + reference[0] * math.sin(self.shift)
         referenceNewTouple = (self.referenceNew[0], self.referenceNew[1])
-        cv2.line(self.img, (100, 100), (int(self.referenceNew[0] * 50) + 100, int(self.referenceNew[1] * 50) + 100), (0, 255, 0), 3)
-        cv2.circle(self.img, (100, 100), 50, self.RED, 2)
+        cv2.line(img, (100, 100), (int(self.referenceNew[0] * 50) + 100, int(self.referenceNew[1] * 50) + 100), (0, 255, 0), 3)
+        cv2.circle(img, (100, 100), 50, self.RED, 2)
 
         for cnt in contours0:
             if len(cnt) > 30:
@@ -80,11 +80,11 @@ class arrow_detection():
                                 cv2.norm(referenceNewTouple) * cv2.norm(usedEdge))
                 )
                 if self.area_min < area < self.area_max and un > self.unCounter:
-                    cv2.drawContours(self.img, [box], 0, self.RED, 2)
-                    cv2.circle(self.img, centre, 5, self.YELLOW, 2)
-                    cv2.putText(self.img, '%d' % int(self.angle), (centre[0] + 20, centre[1] - 20), cv2.FONT_HERSHEY_SIMPLEX, 1,
+                    cv2.drawContours(img, [box], 0, self.RED, 2)
+                    cv2.circle(img, centre, 5, self.YELLOW, 2)
+                    cv2.putText(img, '%d' % int(self.angle), (centre[0] + 20, centre[1] - 20), cv2.FONT_HERSHEY_SIMPLEX, 1,
                                 self.YELLOW, 2)
-        self.res_image = self.img
+        self.res_image = img
 
     def recordData(self):
         if self.record == 1:
@@ -123,28 +123,28 @@ class arrow_detection():
         with open(self.dst_file_name_time, 'w') as f:
             f.write(str(self.writeTime))
 
+image_processor = arrow_detection( 
+            dst_folder_name="F:\PyhonScripts\Individual_project\kort",
+            hsvminH=0,
+            hsvminS=73,
+            hsvminV=190,
+            hsvmaxH=255,
+            hsvmaxS=255,
+            hsvmaxV=255,
+            area_min=0,
+            area_max=50000,
+            shift=0,
+            factor=1
+        )
+
 while True:
     print(time.time()-time_n)
     time_n = time.time()
     cv_vid = cv2.VideoCapture(0)
     ret, cv_img = cv_vid.read()
     print("Before " + str(time.time()-time_n))
-    image_processor = arrow_detection(
-                img=cv_img, 
-                dst_folder_name="F:\PyhonScripts\Individual_project\kort",
-                hsvminH=0,
-                hsvminS=73,
-                hsvminV=190,
-                hsvmaxH=255,
-                hsvmaxS=255,
-                hsvmaxV=255,
-                area_min=0,
-                area_max=50000,
-                shift=0,
-                factor=1
-            )
     print("After " + str(time.time()-time_n))
-    image_processor.videoRedaction()
+    image_processor.videoRedaction(img=cv_img)
     print("After1 " + str(time.time()-time_n))
     processed_image = image_processor.res_image
     cv2.imshow('d', processed_image)
