@@ -11,7 +11,7 @@ pts.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 time_n = time.time()
 
 class frameExtractor:
-    def __init__(self, resize_factor, margin_x, margin_y, img, src_file_name, dst_folder_name, digits_for_res=0):
+    def __init__(self, resize_factor, margin_x, margin_y, img, dst_folder_name, src_file_name=None, digits_for_res=0):
         self.img = img
         self.src_file_name = src_file_name
         self.dst_folder_name = dst_folder_name
@@ -155,22 +155,22 @@ class frameExtractor:
         return(final_res)
 
 
-resize_factor = 0.15
-margin_x = 0
-margin_y = 0
+# resize_factor = 0.15
+# margin_x = 0
+# margin_y = 0
 
 
-while True:
-    print(time.time()-time_n)
-    time_n = time.time()
-    cv_vid = cv2.VideoCapture(0)
-    ret, cv_img = cv_vid.read()
-    img_grey = cv2.cvtColor(cv_img, cv2.COLOR_RGB2GRAY)
-    image_processor = frameExtractor(resize_factor, margin_x, margin_y, img=img_grey, src_file_name=None, dst_folder_name='F:\PyhonScripts\Individual_project\kort')
-    image_processor.final_prediction()
-    processed_image = image_processor.res_image
-    cv2.imshow('d', processed_image)
-    k = cv2.waitKey(30) & 0xFF
-    if k == 27:
-        break
+# while True:
+#     print(time.time()-time_n)
+#     time_n = time.time()
+#     cv_vid = cv2.VideoCapture(0)
+#     ret, cv_img = cv_vid.read()
+#     img_grey = cv2.cvtColor(cv_img, cv2.COLOR_RGB2GRAY)
+#     image_processor = frameExtractor(resize_factor, margin_x, margin_y, img=img_grey, src_file_name=None, dst_folder_name='F:\PyhonScripts\Individual_project\kort')
+#     image_processor.final_prediction()
+#     processed_image = image_processor.res_image
+#     cv2.imshow('d', processed_image)
+#     k = cv2.waitKey(30) & 0xFF
+#     if k == 27:
+#         break
 

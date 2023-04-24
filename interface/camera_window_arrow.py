@@ -82,6 +82,7 @@ class CameraWindowArrow(QMainWindow):
 
         self.horizontalSlider_shift.valueChanged.connect(self._handle_slider_shift)
         self.horizontalSlider_factor.valueChanged.connect(self._handle_slider_factor)
+       
 
         self.show()
         self._init_video_capture()
