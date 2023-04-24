@@ -4,7 +4,7 @@ import cv2
 import math
 import time
 import scipy.signal as signal
-from numba import prange, jit
+
 
 
 plt.style.use('Solarize_Light2')
@@ -12,8 +12,8 @@ plt.style.use('Solarize_Light2')
 time_n = time.time()
 
 class arrow_detection():
-    def __init__(self, dst_folder_name=str, hsvminH=int, hsvminS=int, hsvminV=int,
-                 hsvmaxH=int, hsvmaxS=int, hsvmaxV=int, area_min=int, area_max=int, shift=int, factor=int, record=int):
+    def __init__(self, dst_folder_name, hsvminH, hsvminS, hsvminV,
+                 hsvmaxH, hsvmaxS, hsvmaxV, area_min, area_max, shift, factor, record):
 
         self.dst_folder_name = dst_folder_name
         self.hsvminH = hsvminH
@@ -22,8 +22,8 @@ class arrow_detection():
         self.hsvmaxH = hsvmaxH
         self.hsvmaxS = hsvmaxS
         self.hsvmaxV = hsvmaxV
-        self.hsv_min = np.array((hsvminH, hsvminS, hsvminV), np.uint8)
-        self.hsv_max = np.array((hsvmaxH, hsvmaxS, hsvmaxV), np.uint8)
+        self.hsv_min = np.array((self.hsvminH, self.hsvminS, self.hsvminV), np.uint8)
+        self.hsv_max = np.array((self.hsvmaxH, self.hsvmaxS, self.hsvmaxV), np.uint8)
         self.record = record
         self.record_c = False
         self.recordList = np.array([], dtype=np.float64)
@@ -85,6 +85,7 @@ class arrow_detection():
                     cv2.putText(img, '%d' % int(self.angle), (centre[0] + 20, centre[1] - 20), cv2.FONT_HERSHEY_SIMPLEX, 1,
                                 self.YELLOW, 2)
         self.res_image = img
+        return self.res_image
 
     def recordData(self):
         if self.record == 1:
@@ -103,16 +104,16 @@ class arrow_detection():
         sos = signal.butter(50, 35, 'lp', fs=len(self.recordList), output='sos')
         trueRecord = np.copy(self.recordList)
         print(len(self.recordList))
-        for i in prange(len(self.recordList)):
+        for i in range(len(self.recordList)):
             if i <= 5 or i > len(self.recordList) - 6:
                 trueRecord[i] = self.recordList[i]
             else:
                 count = 0
-                for j in prange(i - 3, i + 3):
+                for j in range(i - 3, i + 3):
                     count += self.recordList[j]
                 trueRecord[i] = count / 7
         filtered = signal.sosfiltfilt(sos, self.recordList)
-        for i in prange(0, len(self.timeList), 5):
+        for i in range(0, len(self.timeList), 5):
             self.writeTime = np.append(self.writeTime, self.timeList[i])
             self.writeValue = np.append(self.writeValue, int(filtered[i]))
             self.writeValue2 = np.append(self.writeValue2, trueRecord[i])
@@ -123,31 +124,34 @@ class arrow_detection():
         with open(self.dst_file_name_time, 'w') as f:
             f.write(str(self.writeTime))
 
-image_processor = arrow_detection( 
-            dst_folder_name="F:\PyhonScripts\Individual_project\kort",
-            hsvminH=0,
-            hsvminS=73,
-            hsvminV=190,
-            hsvmaxH=255,
-            hsvmaxS=255,
-            hsvmaxV=255,
-            area_min=0,
-            area_max=50000,
-            shift=0,
-            factor=1
-        )
+# image_processor = arrow_detection(
+#             dst_folder_name="\kort",
+#             hsvminH=0,
+#             hsvminS=73,
+#             hsvminV=190,
+#             hsvmaxH=255,
+#             hsvmaxS=255,
+#             hsvmaxV=255,
+#             area_min=0,
+#             area_max=50000,
+#             shift=0,
+#             factor=1,
+#             record=0
+#         )
 
-while True:
-    print(time.time()-time_n)
-    time_n = time.time()
-    cv_vid = cv2.VideoCapture(0)
-    ret, cv_img = cv_vid.read()
-    print("Before " + str(time.time()-time_n))
-    print("After " + str(time.time()-time_n))
-    image_processor.videoRedaction(img=cv_img)
-    print("After1 " + str(time.time()-time_n))
-    processed_image = image_processor.res_image
-    cv2.imshow('d', processed_image)
-    k = cv2.waitKey(30) & 0xFF
-    if k == 27:
-        break
+# while True:
+#     print(time.time()-time_n)
+#     time_n = time.time()
+#     cv_vid = cv2.VideoCapture(0)
+#     ret, cv_img = cv_vid.read()
+#     print("Before " + str(time.time()-time_n))
+#     print("After " + str(time.time()-time_n))
+#     image_processor.videoRedaction(img=cv_img)
+#     print("After1 " + str(time.time()-time_n))
+#     processed_image = image_processor.res_image
+#     cv2.imshow('d', processed_image)
+#     k = cv2.waitKey(30) & 0xFF
+#     if k == 27:
+#         break
+
+# cv2.destroyAllWindows()
