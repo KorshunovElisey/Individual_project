@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import time
 import cv2
 import numpy as np
 from PyQt5 import uic
@@ -47,6 +48,7 @@ class CameraWindowSevenSeg(QMainWindow):
         self.camera_video_thread = video_thread
         self.digits_for_res = 0
         self.res = 0
+        self.image_processor = frameExtractor()
 
         self.init_window()
 
@@ -73,22 +75,21 @@ class CameraWindowSevenSeg(QMainWindow):
     def update_image(self, cv_img):
         """Updates the image_label with a new opencv image"""
         img_grey = cv2.cvtColor(cv_img, cv2.COLOR_RGB2GRAY)
-        image_processor = frameExtractor(
-            img=img_grey,
-            resize_factor=self.resize_factor,
-            margin_x=self.margin_x,
-            margin_y=self.margin_y,
-            dst_folder_name=self.folder_path,
-            digits_for_res=self.digits_for_res
-        )
-        self.res = image_processor.final_prediction()
-        processed_image = image_processor.res_image
-
+        
+        processed_image, self.res = self.image_processor.final_prediction(
+                        resize_factor=self.resize_factor, 
+                        margin_x=self.margin_x, 
+                        margin_y=self.margin_y, 
+                        img=img_grey, 
+                        dst_folder_name=self.folder_path, 
+                        digits_for_res=self.digits_for_res
+                        )
         qt_img = convert_cv_to_qt_pixmap(
             processed_image, self.camera_display_width, self.camera_display_height
         )
         self.label_image.setPixmap(qt_img)
         self.show_result()
+
 
     def _handle_slider_resizeFactor(self, value: int):
         self.resize_factor = value/200

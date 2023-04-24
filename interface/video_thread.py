@@ -20,4 +20,4 @@ class VideoThread(QThread):
             ret, cv_img = cap.read()
             if ret:
                 self.change_pixmap_signal.emit(cv_img)
-            time.sleep(0.8)
+                time.sleep(0.4)

@@ -111,7 +111,6 @@ while True:
     hsv_max[2] = cv2.getTrackbarPos('light_max', 'd')
     record = cv2.getTrackbarPos('record', 'd')
     #unCounter = cv2.getTrackbarPos('ratio', 'd')
-    print(hsv_min, hsv_max)
     k = cv2.waitKey(30) & 0xFF
     if k == 27:
         break

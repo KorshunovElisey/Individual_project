@@ -58,6 +58,7 @@ class CameraWindowArrow(QMainWindow):
         self.device_type = device_type
         self.folder_path = folder_path
         self.camera_video_thread = video_thread
+        self.image_processor = arrow_detection(dst_folder_name=self.folder_path)
 
         self.init_window()
 
@@ -104,13 +105,13 @@ class CameraWindowArrow(QMainWindow):
 
     
     def _handle_slider_HsvminH(self, value: int):
-        self.HsvmaxH = value
+        self.HsvminH = value
 
     def _handle_slider_HsvminS(self, value: int):
-        self.HsvmaxH = value
+        self.HsvminH = value
     
     def _handle_slider_HsvminV(self, value: int):
-        self.HsvmaxH = value
+        self.HsvminH = value
 
 
 
@@ -141,9 +142,9 @@ class CameraWindowArrow(QMainWindow):
     def update_image(self, cv_img):
         """Updates the image_label with a new opencv image"""
         # hsv_img = cv2.cvtColor(cv_img, cv2.COLOR_BGR2HSV)
-        self.image_processor = arrow_detection(
-            img=cv_img, 
-            dst_folder_name=self.folder_path,
+        img = cv_img
+        processed_image = self.image_processor.videoRedaction(            
+            img=img, 
             hsvminH=self.HsvminH,
             hsvminS=self.HsvminS,
             hsvminV=self.HsvminV,
@@ -153,10 +154,8 @@ class CameraWindowArrow(QMainWindow):
             area_min=self.areamin,
             area_max=self.areamax,
             shift=self.shift,
-            factor=self.factor
-        )
-        self.image_processor.videoRedaction()
-        processed_image = self.image_processor.res_image
+            factor=self.factor)
+        
 
         qt_img = convert_cv_to_qt_pixmap(
             processed_image, self.camera_display_width, self.camera_display_height
